@@ -1,0 +1,6 @@
+.header {
+  padding: 20px 50px;
+  background: transparent;
+  backdrop-filter: blur(5px);
+  align-self: stretch;
+}

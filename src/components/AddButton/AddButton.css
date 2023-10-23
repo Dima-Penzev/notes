@@ -1,0 +1,10 @@
+.add-button {
+  display: block;
+  background: url("../../images/add_square_icon_257081.svg") center no-repeat;
+  background-size: 50px 50px;
+  min-height: 50px;
+  min-width: 50px;
+  border: none;
+  cursor: pointer;
+  margin-left: auto;
+}

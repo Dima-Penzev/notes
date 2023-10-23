@@ -1,0 +1,47 @@
+.note {
+  list-style: none;
+  max-width: 450px;
+  min-height: 150px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+}
+
+.note__title {
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+.note__text {
+  margin: 0;
+  font-size: 18px;
+}
+
+.note__btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.note__edit {
+  display: block;
+  background: url("../../images/edit_icon_257366.svg") center no-repeat;
+  background-size: 30px 30px;
+  min-height: 30px;
+  min-width: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+.note__delete {
+  display: block;
+  background: url("../../images/trush_square_icon_257909.svg") center no-repeat;
+  background-size: 30px 30px;
+  min-height: 30px;
+  min-width: 30px;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
