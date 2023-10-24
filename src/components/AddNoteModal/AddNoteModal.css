@@ -1,0 +1,22 @@
+.modal__input {
+  display: block;
+  margin-bottom: 10px;
+  padding: 5px;
+  background: transparent;
+  border: 1px solid #333;
+  border-radius: 5px;
+  box-sizing: border-box;
+  width: 100%;
+  font-weight: 700;
+}
+
+.modal__textarea {
+  display: block;
+
+  background: transparent;
+  border: 1px solid #333;
+  border-radius: 5px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 400px;
+}

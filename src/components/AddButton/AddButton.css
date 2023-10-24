@@ -7,4 +7,9 @@
   border: none;
   cursor: pointer;
   margin-left: auto;
+  transition: opacity 250ms ease-in;
+}
+
+.add-button:hover {
+  opacity: 0.8;
 }

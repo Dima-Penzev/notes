@@ -1,10 +1,10 @@
 import AddButton from "../AddButton/AddButton";
 import "./Header.css";
 
-function Header() {
+function Header({ openModal }) {
   return (
     <header className="header">
-      <AddButton />
+      <AddButton openModal={openModal} />
     </header>
   );
 }

@@ -1,18 +1,27 @@
 import "./Note.css";
 
-function Note() {
+function Note({ title, text, noteId, onEditNote, onDeleteNote }) {
   return (
     <li className="note">
-      <h2 className="note__title">Заголовок заметки</h2>
-      <p className="note__text">
-        Заметка, в которой нет ничего хорошего dsfadsf asdfasdfas asdfasdfads
-        dsfadsf s adfa sdfads fasdf adfadsfadsf adfasdf adfasd fafd f fasdfa
-        sdfasdf asdfa fa fas fasdfasdf asdfdfadfa sdfasdfadfaf af fasd adf adsf
-        asdfa sdf asdf asdf adsf adf af
-      </p>
+      <div className="note__text-container">
+        <h2 className="note__title">{title}</h2>
+        <p className="note__text">{text}</p>
+      </div>
       <div className="note__btn-container">
-        <button className="note__edit" type="button" />
-        <button className="note__delete" type="button" />
+        <button
+          className="note__edit"
+          type="button"
+          onClick={() => {
+            onEditNote(noteId);
+          }}
+        />
+        <button
+          className="note__delete"
+          type="button"
+          onClick={() => {
+            onDeleteNote(noteId);
+          }}
+        />
       </div>
     </li>
   );

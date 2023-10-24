@@ -2,8 +2,6 @@
   min-height: 100vh;
   background: url("http://tfgms.com/sandbox/dailyui/bg-1.jpg") center no-repeat;
   background-size: cover;
-  color: #333;
-  font-family: "Raleway", sans-serif;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
