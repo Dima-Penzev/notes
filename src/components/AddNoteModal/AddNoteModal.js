@@ -5,7 +5,7 @@ import { nanoid } from "nanoid";
 import { createPortal } from "react-dom";
 const modalRoot = document.querySelector("#modal-root");
 
-function AddNoteModal({ isLoading, onClose, onSubmit }) {
+function AddNoteModal({ onClose, onSubmit }) {
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
   const [id, setId] = useState("");
@@ -15,11 +15,11 @@ function AddNoteModal({ isLoading, onClose, onSubmit }) {
 
     switch (name) {
       case "note":
-        setText(value);
+        setText(value.trim());
         break;
 
       case "title":
-        setTitle(value);
+        setTitle(value.trim());
         break;
 
       default:
@@ -37,6 +37,10 @@ function AddNoteModal({ isLoading, onClose, onSubmit }) {
   const handleSubmit = (evt) => {
     evt.preventDefault();
 
+    if (title === "" || text === "") {
+      return;
+    }
+
     onSubmit({ title, text, id });
     resetForm();
   };
@@ -44,7 +48,7 @@ function AddNoteModal({ isLoading, onClose, onSubmit }) {
   return createPortal(
     <ModalWithForm
       title="Создать заметку"
-      buttonText={isLoading ? "Создание..." : "Создать"}
+      buttonText="Создать"
       onClose={onClose}
       onSubmit={handleSubmit}
     >

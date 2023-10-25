@@ -4,7 +4,7 @@ import { useState } from "react";
 import { createPortal } from "react-dom";
 const modalRoot = document.querySelector("#modal-root");
 
-function EditNoteModal({ isLoading, editedNote, onClose, onSubmit }) {
+function EditNoteModal({ editedNote, onClose, onSubmit }) {
   const [title, setTitle] = useState(editedNote.title);
   const [text, setText] = useState(editedNote.text);
 
@@ -13,11 +13,11 @@ function EditNoteModal({ isLoading, editedNote, onClose, onSubmit }) {
 
     switch (name) {
       case "note":
-        setText(value);
+        setText(value.trim());
         break;
 
       case "title":
-        setTitle(value);
+        setTitle(value.trim());
         break;
 
       default:
@@ -33,13 +33,17 @@ function EditNoteModal({ isLoading, editedNote, onClose, onSubmit }) {
   const handleSubmit = (evt) => {
     evt.preventDefault();
 
+    if (title === "" || text === "") {
+      return;
+    }
+
     onSubmit({ title, text, id: editedNote.id });
     resetForm();
   };
   return createPortal(
     <ModalWithForm
       title="Изменить заметку"
-      buttonText={isLoading ? "Изменение..." : "Изменить"}
+      buttonText="Изменить"
       onClose={onClose}
       onSubmit={handleSubmit}
     >

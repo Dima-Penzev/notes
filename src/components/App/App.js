@@ -11,7 +11,6 @@ import EditNoteModal from "../EditNoteModal/EditNoteModal";
 function App() {
   const [showModal, setShowModal] = useState(false);
   const [editedNote, setEditedNote] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
   const notes = useSelector((state) => state.notes.value);
   const dispatch = useDispatch();
 
@@ -38,17 +37,13 @@ function App() {
   }
 
   function addNoteInList(note) {
-    setIsLoading(true);
     dispatch(addNote(note));
     closeModal();
-    setIsLoading(false);
   }
 
   function editNote(updatedNote) {
-    setIsLoading(true);
     dispatch(replaceNote(updatedNote));
     closeModal();
-    setIsLoading(false);
   }
 
   function findEditedNote(idNote) {
@@ -61,15 +56,10 @@ function App() {
       <Header openModal={openModal} />
       <NoteList notes={notes} onEditNote={findEditedNote} />
       {showModal && (
-        <AddNoteModal
-          isLoading={isLoading}
-          onClose={closeModal}
-          onSubmit={addNoteInList}
-        />
+        <AddNoteModal onClose={closeModal} onSubmit={addNoteInList} />
       )}
       {editedNote && (
         <EditNoteModal
-          isLoading={isLoading}
           editedNote={editedNote}
           onClose={closeModal}
           onSubmit={editNote}
