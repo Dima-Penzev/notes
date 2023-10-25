@@ -68,7 +68,7 @@ function EditNoteModal({ editedNote, onClose, onSubmit }) {
         placeholder="Текст"
         name="note"
         cols="40"
-        rows="3"
+        rows="10"
         required
         value={text}
         onChange={handleChange}

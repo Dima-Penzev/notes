@@ -68,7 +68,7 @@ function AddNoteModal({ onClose, onSubmit }) {
         placeholder="Текст"
         name="note"
         cols="40"
-        rows="3"
+        rows="10"
         required
         onChange={handleChange}
       ></textarea>
