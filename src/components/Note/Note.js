@@ -1,6 +1,11 @@
 import "./Note.css";
+import { useDispatch, useSelector } from "react-redux";
+import { removeNote } from "../../redux/notesSlice";
 
-function Note({ title, text, noteId, onEditNote, onDeleteNote }) {
+function Note({ title, text, noteId, onEditNote }) {
+  const notes = useSelector((state) => state.notes.value);
+  const dispatch = useDispatch();
+
   return (
     <li className="note">
       <div className="note__text-container">
@@ -15,13 +20,15 @@ function Note({ title, text, noteId, onEditNote, onDeleteNote }) {
             onEditNote(noteId);
           }}
         />
-        <button
-          className="note__delete"
-          type="button"
-          onClick={() => {
-            onDeleteNote(noteId);
-          }}
-        />
+        {notes.length > 1 && (
+          <button
+            className="note__delete"
+            type="button"
+            onClick={() => {
+              dispatch(removeNote(noteId));
+            }}
+          />
+        )}
       </div>
     </li>
   );

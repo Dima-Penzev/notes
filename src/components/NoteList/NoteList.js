@@ -1,7 +1,7 @@
 import "./NoteList.css";
 import Note from "../Note/Note";
 
-function NoteList({ notes, onEditNote, onDeleteNote }) {
+function NoteList({ notes, onEditNote }) {
   return (
     <ul className="note-list">
       {notes.map(({ title, text, id }) => (
@@ -11,7 +11,6 @@ function NoteList({ notes, onEditNote, onDeleteNote }) {
           text={text}
           noteId={id}
           onEditNote={onEditNote}
-          onDeleteNote={onDeleteNote}
         />
       ))}
     </ul>

@@ -33,7 +33,7 @@ function EditNoteModal({ isLoading, editedNote, onClose, onSubmit }) {
   const handleSubmit = (evt) => {
     evt.preventDefault();
 
-    onSubmit({ ...editedNote, title, text });
+    onSubmit({ title, text, id: editedNote.id });
     resetForm();
   };
   return createPortal(
