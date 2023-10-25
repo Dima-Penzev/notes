@@ -15,11 +15,11 @@ function AddNoteModal({ onClose, onSubmit }) {
 
     switch (name) {
       case "note":
-        setText(value.trim());
+        setText(value);
         break;
 
       case "title":
-        setTitle(value.trim());
+        setTitle(value);
         break;
 
       default:
@@ -36,12 +36,14 @@ function AddNoteModal({ onClose, onSubmit }) {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    const normalizedTitle = title.trim();
+    const normalizedText = text.trim();
 
-    if (title === "" || text === "") {
+    if (normalizedTitle === "" || normalizedText === "") {
       return;
     }
 
-    onSubmit({ title, text, id });
+    onSubmit({ title: normalizedTitle, text: normalizedText, id });
     resetForm();
   };
 
@@ -57,6 +59,7 @@ function AddNoteModal({ onClose, onSubmit }) {
         type="text"
         placeholder="Заголовок"
         name="title"
+        maxLength="70"
         required
         onChange={handleChange}
       />
